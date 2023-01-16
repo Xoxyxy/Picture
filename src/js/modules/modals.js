@@ -1,10 +1,11 @@
 import { calcScroll } from './calcScroll'
+let btnPressed = false
 
 function modals() {
   const body = document.body,
     windows = document.querySelectorAll('[data-modal]')
 
-  function bindModal(btnSelector, modalSelector, closeSelector, closeClickOverlay = true) {
+  function bindModal(btnSelector, modalSelector, closeSelector, destroy = false) {
     const btn = document.querySelectorAll(btnSelector),
       modal = document.querySelector(modalSelector),
       close = document.querySelector(closeSelector),
@@ -36,6 +37,8 @@ function modals() {
     btn.forEach(btn => {
       btn.addEventListener('click', event => {
         if (event.target) event.preventDefault()
+        if (destroy) event.target.remove()
+        btnPressed = true
         showModal(modal)
       })
     })
@@ -45,7 +48,7 @@ function modals() {
     })
 
     modal.addEventListener('click', event => {
-      if (event.target && event.target == modal && closeClickOverlay) {
+      if (event.target && event.target == modal) {
         hideModal(modal)
       }
     })
@@ -59,7 +62,7 @@ function modals() {
 
   function showModalByTime(selector, time) {
     setTimeout(function () {
-      let display
+      let display = false
 
       windows.forEach(window => {
         if (window.classList.contains('show')) {
@@ -70,14 +73,25 @@ function modals() {
       if (!display) {
         document.querySelector(selector).classList.add('show')
         body.classList.add('modal-open')
+        const scroll = calcScroll()
         body.style.marginRight = scroll + 'px'
       }
     }, time)
   }
 
+  function openByScroll(selector) {
+    window.addEventListener('scroll', () => {
+      if (!btnPressed && (window.scrollY + document.documentElement.clientHeight >= document.documentElement.scrollHeight)) {
+        document.querySelector(selector).click()
+      }
+    })
+  }
+
   bindModal('.button-design', '.popup-design', '.popup-design .popup-close')
   bindModal('.button-consultation', '.popup-consultation', '.popup-consultation .popup-close')
+  bindModal('.fixed-gift', '.popup-gift', '.popup-gift .popup-close', true)
   // showModalByTime('.popup-consultation', 60000)
+  openByScroll('.fixed-gift')
 }
 
 export { modals }
