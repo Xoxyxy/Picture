@@ -1270,15 +1270,16 @@ h4 {
   transform: translateX(-50%) !important;
   padding: 3rem 6rem 4rem 6rem;
 }
-
+div.status {
+  font-size: 2rem;
+  text-align: center;
+}
 .show {
   display: inline-block;
 }
-
 .hide {
   display: none;
 }
-
 @media (max-width: 1399px) {
   .paints {
     display: none;
