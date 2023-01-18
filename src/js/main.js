@@ -1,6 +1,7 @@
 import { modals } from './modules/modals'
 import { sliders } from './modules/sliders'
 import { forms } from './modules/forms'
+import { mask } from './modules/mask'
 import { checkTextInputs } from './modules/checkTextInputs'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,4 +11,5 @@ document.addEventListener('DOMContentLoaded', () => {
   forms('form', 'input')
   checkTextInputs('[name="name"]')
   checkTextInputs('[name="message"]')
+  mask('[name="phone"]')
 }) 
