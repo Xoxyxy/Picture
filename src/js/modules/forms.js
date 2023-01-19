@@ -1,3 +1,5 @@
+import { postDate } from '../services/requests'
+
 function forms(formSelector, inputSelector) {
   const form = document.querySelectorAll(formSelector),
     input = document.querySelectorAll(inputSelector),
@@ -15,15 +17,6 @@ function forms(formSelector, inputSelector) {
   const path = {
     designer: 'assets/server.php',
     question: 'assets/question.php'
-  }
-
-  async function postDate(url, data) {
-    const request = await fetch(url, {
-      method: 'POST',
-      body: data
-    })
-
-    return await request.text()
   }
 
   upload.forEach(item => {
