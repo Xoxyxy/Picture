@@ -51,11 +51,9 @@ function forms(formSelector, inputSelector) {
       textMessage.innerText = message.loading
       statusMessage.appendChild(textMessage)
 
-
       const formData = new FormData(form)
       let api = null
       form.closest('.popup-design') || form.classList.contains('calc-form') ? api = path.designer : api = path.question
-      console.log(api)
 
       postDate(api, formData)
         .then(result => {
