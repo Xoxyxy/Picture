@@ -5,6 +5,7 @@ import { mask } from './modules/mask'
 import { checkTextInputs } from './modules/checkTextInputs'
 import { showMore } from './modules/showMore'
 import { calculator } from './modules/calculator'
+import { filter } from './modules/filter'
 
 document.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -16,4 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   mask('[name="phone"]')
   showMore('.button-styles', '#styles .row')
   calculator('#size', '#material', '#options', '.promocode', '.calc-price')
+  filter()
 }) 
