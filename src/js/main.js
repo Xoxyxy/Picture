@@ -6,6 +6,7 @@ import { checkTextInputs } from './modules/checkTextInputs'
 import { showMore } from './modules/showMore'
 import { calculator } from './modules/calculator'
 import { filter } from './modules/filter'
+import { picture } from './modules/picture'
 
 document.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -18,4 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
   showMore('.button-styles', '#styles .row')
   calculator('#size', '#material', '#options', '.promocode', '.calc-price')
   filter()
+  picture('.sizes-block')
 }) 
