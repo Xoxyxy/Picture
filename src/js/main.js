@@ -7,6 +7,7 @@ import { showMore } from './modules/showMore'
 import { calculator } from './modules/calculator'
 import { filter } from './modules/filter'
 import { picture } from './modules/picture'
+import { accordion } from './modules/accordion'
 
 document.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -20,4 +21,5 @@ document.addEventListener('DOMContentLoaded', () => {
   calculator('#size', '#material', '#options', '.promocode', '.calc-price')
   filter()
   picture('.sizes-block')
+  accordion('.accordion-heading')
 }) 
