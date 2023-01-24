@@ -8,6 +8,7 @@ import { calculator } from './modules/calculator'
 import { filter } from './modules/filter'
 import { picture } from './modules/picture'
 import { accordion } from './modules/accordion'
+import { burger } from './modules/burger'
 
 document.addEventListener('DOMContentLoaded', () => {
   modals()
@@ -22,4 +23,5 @@ document.addEventListener('DOMContentLoaded', () => {
   filter()
   picture('.sizes-block')
   accordion('.accordion-heading')
+  burger('.burger-menu', '.burger')
 }) 
